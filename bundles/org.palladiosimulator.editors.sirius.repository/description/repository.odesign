@@ -78,6 +78,13 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[self.returnType__OperationSignature.oclIsUndefined()/]">
+              <style xsi:type="style:SquareDescription" labelExpression="'void ' + self.entityName + '('+ self.printParameters() +')'" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql: '&lt;&lt;Interface>>\n'.concat(self.entityName)" widthComputationExpression="20" heightComputationExpression="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1021,24 +1028,6 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="repository.SinkRole" referenceName="providedRoles_InterfaceProvidingEntity">
                   <subModelOperations xsi:type="tool:SetValue" featureName="eventGroup__SinkRole" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="entityName" valueExpression="aql:self.providingEntity_ProvidedRole.entityName + '.' + self.eventGroup__SinkRole.entityName + '.SinkRole' + source.eContents()->filter(repository::SinkRole)->size()"/>
-                  <subModelOperations xsi:type="tool:For" expression="aql: target.eventTypes__EventGroup">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                      <subModelOperations xsi:type="tool:CreateInstance" typeName="seff::ResourceDemandingSEFF" referenceName="serviceEffectSpecifications__BasicComponent">
-                        <subModelOperations xsi:type="tool:SetValue" featureName="describedService__SEFF" valueExpression="var:i"/>
-                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance">
-                          <subModelOperations xsi:type="tool:If" conditionExpression="aql:instance.eContents(seff::StartAction)->size() = 0 and instance.eContents(seff::StopAction)->size() = 0"/>
-                          <subModelOperations xsi:type="tool:CreateInstance" typeName="seff.StartAction" referenceName="steps_Behaviour" variableName="StartAction"/>
-                          <subModelOperations xsi:type="tool:CreateInstance" typeName="seff.StopAction" referenceName="steps_Behaviour" variableName="StopAction"/>
-                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:StartAction">
-                            <subModelOperations xsi:type="tool:SetValue" featureName="successor_AbstractAction" valueExpression="var:StopAction"/>
-                          </subModelOperations>
-                          <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:StopAction">
-                            <subModelOperations xsi:type="tool:SetValue" featureName="predecessor_AbstractAction" valueExpression="var:StartAction"/>
-                          </subModelOperations>
-                        </subModelOperations>
-                      </subModelOperations>
-                    </subModelOperations>
-                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>

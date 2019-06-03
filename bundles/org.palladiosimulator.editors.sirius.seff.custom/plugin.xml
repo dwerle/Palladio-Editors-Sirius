@@ -36,6 +36,10 @@
             id="AddEmitEventAction">
       </javaActions>
       <javaActions
+            actionClass="org.palladiosimulator.editors.sirius.seff.custom.externaljavaactions.AddConsumeEventAction"
+            id="AddConsumeEventAction">
+      </javaActions>
+      <javaActions
             actionClass="org.palladiosimulator.editors.sirius.seff.custom.externaljavaactions.SetInfrastructureSignature"
             id="SetInfrastructureSignature">
       </javaActions>
