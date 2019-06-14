@@ -112,7 +112,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="DataChannelSinkConnector Edge" preconditionExpression="[targetView.ancestors()->filter(DNodeContainer).target->includes(self.assemblyContext)/]" semanticCandidatesExpression="[connectors__ComposedStructure/]" sourceMapping="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subNodeMappings[name='DataChannel%20Node']" targetMapping="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='SinkRole%20Node']" targetFinderExpression="[sinkRole/]" sourceFinderExpression="[dataChannel/]" domainClass="DataChannelSinkConnector" useDomainElement="true">
+        <edgeMappings name="DataChannelSinkConnector Edge" preconditionExpression="[targetView.ancestors()->filter(DNodeContainer).target->includes(self.assemblyContext)/]" semanticCandidatesExpression="[connectors__ComposedStructure/]" sourceMapping="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='DataChannel%20Container%20Node']" targetMapping="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='SinkRole%20Node']" targetFinderExpression="[sinkRole/]" sourceFinderExpression="[dataChannel/]" domainClass="DataChannelSinkConnector" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription>
@@ -120,7 +120,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="DataChannelSourceConnector Edge" preconditionExpression="[sourceView.ancestors()->filter(DNodeContainer).target->includes(self.assemblyContext)/]" semanticCandidatesExpression="[connectors__ComposedStructure/]" sourceMapping="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='SourceRole%20Node']" targetMapping="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subNodeMappings[name='DataChannel%20Node']" targetFinderExpression="[dataChannel/]" sourceFinderExpression="[sourceRole/]" domainClass="DataChannelSourceConnector" useDomainElement="true">
+        <edgeMappings name="DataChannelSourceConnector Edge" preconditionExpression="[sourceView.ancestors()->filter(DNodeContainer).target->includes(self.assemblyContext)/]" semanticCandidatesExpression="[connectors__ComposedStructure/]" sourceMapping="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='SourceRole%20Node']" targetMapping="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='DataChannel%20Container%20Node']" targetFinderExpression="[dataChannel/]" sourceFinderExpression="[sourceRole/]" domainClass="DataChannelSourceConnector" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription>
@@ -177,13 +177,6 @@
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-            </style>
-          </subNodeMappings>
-          <subNodeMappings name="DataChannel Node" semanticCandidatesExpression="[eventChannel__ComposedStructure/]" domainClass="system.DataChannel">
-            <style xsi:type="style:SquareDescription" labelExpression="aql: '&lt;&lt;DataChannel>>\n'.concat(self.entityName)" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subNodeMappings>
           <subContainerMappings name="AssemblyContext Container" deletionDescription="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.3/@subSections[name='Deletion']/@ownedTools[name='AssemblyContext%20Deletion']" labelDirectEdit="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.3/@subSections[name='Direct%20Edit%20Label']/@ownedTools[name='NamedElementDirectEdit']" semanticCandidatesExpression="[self.assemblyContexts__ComposedStructure/]" doubleClickDescription="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='AssemblyContext%20Navigation']" documentation="Used for the parameter implementation until the Node can be fully migrated." domainClass="composition.AssemblyContext">
@@ -287,6 +280,14 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="DataChannel Container Node" semanticCandidatesExpression="[eventChannel__ComposedStructure/]" domainClass="system.DataChannel">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="aql: '&lt;&lt;DataChannel>>\n'.concat(self.entityName)" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subContainerMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="aql: '&lt;&lt;' + self.getTypeString() + '>>\n' + self.entityName">
@@ -446,15 +447,11 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="DataChannel">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Data Channel" containerMappings="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='DataChannel%20Container%20Node']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="DataChannel" referenceName="eventChannel__ComposedStructure">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="entityName" valueExpression="['DataChannel' + container.eventChannel__ComposedStructure->size()/]"/>
-                </subModelOperations>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:SetValue" featureName="entityName" valueExpression="['DataChannel' + container.eventChannel__ComposedStructure->size()/]"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:DoubleClickDescription" name="AssemblyContext Navigation" precondition="aql:self.encapsulatedComponent__AssemblyContext.oclIsKindOf(entity::ComposedProvidingRequiringEntity)" mappings="//@ownedViewpoints[name='Assembly']/@ownedRepresentations[name='Assembly%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']">

@@ -52,11 +52,6 @@
         </edgeMappings>
         <containerMappings name="Interface" deletionDescription="//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='OperationInterface%20Deletion']" labelDirectEdit="//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Name']" semanticCandidatesExpression="feature:interfaces__Repository" domainClass="repository.OperationInterface" childrenPresentation="List">
           <subNodeMappings name="OperationSignature" labelDirectEdit="//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20Signature']" semanticCandidatesExpression="feature:signatures__OperationInterface" domainClass="repository.OperationSignature">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:'void ' + self.entityName + '(' + self.printParameters() + ')'" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
             <conditionnalStyles predicateExpression="[self.returnType__OperationSignature.oclIsTypeOf(PrimitiveDataType)/]">
               <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:self.returnType__OperationSignature.oclAsType(repository::PrimitiveDataType).type.toString().toLower() + ' ' + self.entityName + '('+ self.printParameters() +')'" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -73,13 +68,6 @@
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="[self.returnType__OperationSignature.oclIsTypeOf(CollectionDataType)/]">
               <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:if self.returnType__OperationSignature.oclIsTypeOf(repository::CollectionDataType) and self.returnType__OperationSignature.oclAsType(repository::CollectionDataType).innerType_CollectionDataType.oclIsTypeOf(repository::PrimitiveDataType) then &#xD;self.returnType__OperationSignature.oclAsType(repository::CollectionDataType).innerType_CollectionDataType.oclAsType(repository::PrimitiveDataType).type.toString().toLower() + '[]' else self.returnType__OperationSignature.oclAsType(repository::CollectionDataType).entityName endif  + ' ' + self.entityName + '(' + self.printParameters() + ')'" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="[self.returnType__OperationSignature.oclIsUndefined()/]">
-              <style xsi:type="style:SquareDescription" labelExpression="'void ' + self.entityName + '('+ self.printParameters() +')'" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
